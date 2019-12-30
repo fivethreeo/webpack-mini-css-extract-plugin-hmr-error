@@ -8,13 +8,13 @@ const path = require('path');
 const webpack = require('webpack');
 const watchMode = global.watch || false;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const rootPath = process.cwd();
 
 const webpackConfig = {
-   context: rootPath,
+    mode: env,
+    context: rootPath,
     entry: {
-        app: ['./test.js'],
+        app: ['./test.js', 'webpack-hot-middleware/client'],
     },
     module: {
         rules: [
@@ -39,17 +39,17 @@ const webpackConfig = {
         ],
     },
     output: {
-        filename: devMode ? '[name].js' : '[name].[hash].js',
+        filename: '[name].js',
         path: path.join(rootPath, 'dist'),
     },
     plugins: [
+        // disabling webpack.HotModuleReplacementPlugin() fixes the issue.
+        new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
-            filename: devMode ? '[name].css' : '[name].[contenthash].css',
+            filename: '[name].css',
         }),
+        
     ],
 };
 
-if (watchMode) {
-   webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-}
 module.exports = webpackConfig;
