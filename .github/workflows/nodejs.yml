@@ -18,7 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm run watch --if-present
-    - run: touch test.scss
+    - run: bash test.sh
       env:
         CI: true
