@@ -18,7 +18,7 @@
         "node-sass": "^4.13",
         "sass-loader": "^8.0.0",
         "watchpack": "^1.6.0",
-        "webpack": "^5.0.0-beta.2",
+        "webpack": "^5.0.0-beta.14",
         "webpack-cli": "^3.3.10",
         "webpack-dev-middleware": "^3.7.2",
         "webpack-hot-middleware": "^2.25.0"
