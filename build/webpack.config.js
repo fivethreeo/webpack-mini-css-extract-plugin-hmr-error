@@ -14,7 +14,7 @@ const webpackConfig = {
     mode: env,
     context: rootPath,
     entry: {
-        app: ['./test.js', 'webpack-hot-middleware/client'],
+        app: ['./test.js' ],
     },
     module: {
         rules: [
@@ -48,7 +48,7 @@ const webpackConfig = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
-        
+
     ],
 };
 

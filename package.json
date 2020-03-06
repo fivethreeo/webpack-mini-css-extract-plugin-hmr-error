@@ -5,6 +5,7 @@
     "scripts": {
         "development": "NODE_ENV=development webpack --mode development --config build/webpack.config.js",
         "watch": "node build/watch",
+        "devserver": "webpack-dev-server --config=./build/webpack.config.js",
         "production": "NODE_ENV=production webpack --mode production --config build/webpack.config.js"
     },
     "engines": {
@@ -21,6 +22,7 @@
         "webpack": "^5.0.0-beta.14",
         "webpack-cli": "^3.3.10",
         "webpack-dev-middleware": "^3.7.2",
-        "webpack-hot-middleware": "^2.25.0"
+        "webpack-hot-middleware": "^2.25.0",
+        "webpack-dev-server": "^3.10.3"
     }
 }

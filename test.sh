@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm run watch --if-present & \
+npm run devserver --if-present & \
   DEPS_PID=$! && \
   sleep 20 && \
   printf "\n\n-------------\nTouching test.scss\n-------------\n\n" && \

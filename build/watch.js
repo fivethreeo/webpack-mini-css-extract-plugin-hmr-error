@@ -4,11 +4,14 @@ global.watch = true;
 
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
-const compiler = webpack(webpackConfig);
 const express = require('express');
 const app = express();
+
+webpackConfig.entry.app.push('webpack-hot-middleware/client')
+
+const compiler = webpack(webpackConfig);
 
 app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: webpackConfig.output.publicPath
 }));
-//app.use(require("webpack-hot-middleware")(compiler));
+app.use(require("webpack-hot-middleware")(compiler));
