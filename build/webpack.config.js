@@ -13,6 +13,9 @@ const rootPath = process.cwd();
 const webpackConfig = {
     mode: env,
     context: rootPath,
+    devServer: {
+      hot: true,
+    },
     entry: {
         app: ['./test.js' ],
     },
