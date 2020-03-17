@@ -1,10 +1,11 @@
 #!/bin/bash
 
 npm run devserver --if-present & \
-  DEPS_PID=$! && \
-  sleep 20 && \
-  printf "\n\n-------------\nTouching test.js\n-------------\n\n" && \
-  touch test.js && \
-  sleep 20 && \
-  kill -s TERM $DEPS_PID && \
-  exit 0
+DEPS_PID=$!
+sleep 5
+printf "\n\n-------------\Modifying test.scss\n-------------\n\n"
+cp test.red.scss test.scss
+sleep 5
+kill -s TERM $DEPS_PID
+cp test.blue.scss test.scss
+exit 0
